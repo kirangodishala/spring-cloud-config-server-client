@@ -26,14 +26,43 @@ import java.util.List;
 @Component
 @ConfigurationProperties(prefix = "kubernetes")
 public class K8sProperties {
-  private List<MyAccount> accounts = new ArrayList<>();
+  private static final int DEFAULT_CACHE_THREADS = 1;
+  private List<ManagedAccount> accounts = new ArrayList<>();
 
   @Data
-  public static class MyAccount {
+  public static class ManagedAccount {
     private String name;
+    private ProviderVersion providerVersion = ProviderVersion.v1;
+    private String environment;
+    private String accountType;
+    private String context;
+    private String cluster;
+    private String oAuthServiceAccount;
+    private List<String> oAuthScopes;
+    private String user;
+    private String kubeconfigFile;
+    private String kubeconfigContents;
+    private String kubectlExecutable;
+    private Integer kubectlRequestTimeoutSeconds;
+    private boolean serviceAccount = false;
+    private boolean configureImagePullSecrets = true;
     private List<String> namespaces = new ArrayList<>();
-    private int cacheThreads;
+    private List<String> omitNamespaces = new ArrayList<>();
+    private String skin;
+    private int cacheThreads = DEFAULT_CACHE_THREADS;
+//    private List<LinkedDockerRegistryConfiguration> dockerRegistries;
+    private List<String> requiredGroupMembership = new ArrayList<>();
+//    private Permissions.Builder permissions = new Permissions.Builder();
+    private String namingStrategy = "kubernetesAnnotations";
+    private boolean debug = false;
+    private boolean metrics = true;
+    private boolean checkPermissionsOnStartup = true;
+//    private List<CustomKubernetesResource> customResources = new ArrayList<>();
+//    private List<KubernetesCachingPolicy> cachingPolicies = new ArrayList<>();
+    private List<String> kinds = new ArrayList<>();
     private List<String> omitKinds = new ArrayList<>();
-    private boolean onlySpinnakerManaged = true;
+    private boolean onlySpinnakerManaged = false;
+    private boolean liveManifestCalls = false;
+    private Long cacheIntervalSeconds;
   }
 }
