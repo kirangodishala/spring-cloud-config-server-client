@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/j-sandy/spinnaker-config.git
+          uri: https://github.com/kirangodishala/cloud-config.git
           basedir: /tmp/cd1
   application:
     name: clouddriver
