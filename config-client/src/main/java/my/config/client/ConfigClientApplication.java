@@ -16,7 +16,7 @@ public class ConfigClientApplication {
 
 @RefreshScope
 @RestController
-class MessageRestController {
+class K8sRestController {
 
     @Autowired
     private K8sProperties k8sProperties;
