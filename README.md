@@ -1,9 +1,9 @@
-##SpringBoot dynamic refresh taking long time  
+### SpringBoot dynamic refresh taking long time  
 
 This is a simple demo to highlight the unbelievable long time SpringBoot takes to refresh the dynamic configuration properties when the number of properties is large.
 
 
-####Setup:
+#### Setup:
 There are two modules : config-server and config-client.
 config-server runs on port 8888 and client on port 8080.
 
@@ -11,7 +11,7 @@ K8sRestController is defined with @RefreshScope and has K8sProperties @Autowired
 
 K8sProperties is annotated with @ConfigurationProperties and the source of the properties is a git repository configured using spring.cloud.config.server.git.uri property.
 
-####Steps to reproduce the issue: 
+#### Steps to reproduce the issue: 
 Upload **clouddriver.yml** file which has around 12000 properties related to 400 **ManagedAccount**s. A sample file with one ManagedAccount looks like the following:
 ```
 kubernetes:
